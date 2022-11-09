@@ -1,11 +1,21 @@
 <?php
 
 namespace Drupal\custom_general\Controller;
+use Drupal\user\UserInterface;
+
+/**
+ * Welcome message print.
+ */
 
 class WelcomePage {
-    public function welcomePage() {
+    /**
+     * Welcome message.
+     */
+    public function welcomePage(UserInterface $user) 
+    {
+       $username =  $user->label();
        return [
-        '#markup' => 'Welcome to our website',
+        '#markup' => 'Hello ' . $username .  ', Welcome to our website',
        ];
     }
 }
